@@ -47,41 +47,45 @@ while blue_turtle.xcor() < screen.window_width() - 260 and red_turtle.xcor() < s
     #select random speed for red turtle
     speedForRed = random.choice(speeds)
     red_turtle.forward(speedForRed)
-    print("Red x: {}".format(red_turtle.xcor()))
 
     #select random speed for green turtle
     speedForGreen = random.choice(speeds)
     green_turtle.forward(speedForGreen)
-    print("Green x: {}".format(green_turtle.xcor()))
 
     # select random speed for yellow turtle
     speedForYellow = random.choice(speeds)
     yellow_turtle.forward(speedForYellow)
-    print("Yellow x: {}".format(yellow_turtle.xcor()))
 
     # select random speed for purple turtle
     speedForPurple = random.choice(speeds)
     purple_turtle.forward(speedForPurple)
-    print("Purple x: {}".format(purple_turtle.xcor()))
 
     # select random speed for blue turtle
     speedForBlue = random.choice(speeds)
     blue_turtle.forward(speedForBlue)
-    print("Blue x: {}".format(blue_turtle.xcor()))
 
 #Decide winner
-maxDistance = 0
+winner = ""
+if red_turtle.xcor() > screen.window_width() - 260:
+    print("Winner: Red")
+    winner = "red"
+elif green_turtle.xcor() > screen.window_width() - 260:
+    print("Winner: Green")
+    winner = "green"
+elif yellow_turtle.xcor() > screen.window_width() - 260:
+    print("Winner: Yellow")
+    winner = "yellow"
+elif purple_turtle.xcor() > screen.window_width() - 260:
+    print("Winner: Purple")
+    winner = "purple"
+else:
+    print("Winner: Blue")
+    winner = "blue"
 
-turtles = [red_turtle, green_turtle, yellow_turtle, purple_turtle, blue_turtle]
-for turtle in turtles:
-    maxDistance = max(maxDistance, turtle.xcor())
-
-for turtle in turtles:
-    if turtle.xcor() == maxDistance:
-        winning_turtle = turtle
-
-print("The winner is {}!".format(winning_turtle.color))
-
+if bet == winner:
+    print("You won the bet!")
+else:
+    print("You lose!")
 
 
 screen.exitonclick()
